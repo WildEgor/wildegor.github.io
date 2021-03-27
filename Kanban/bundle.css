@@ -1,0 +1,247 @@
+.user {
+  display: flex;
+  position: relative;
+}
+.chevron {
+  margin-right: 6px;
+  transition: transform 0.25s;
+}
+.chevron.open {
+  transform: rotate(180deg);
+}
+
+.user-menu {
+  background-color: white;
+  border-radius: 5px;
+  position: absolute;
+  top: 31px;
+  left: -80px;
+  padding: 11px 0 11px 8px;
+  width: 134px;
+}
+.user-menu:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: -5px;
+  right: 10px;
+  border-style: solid;
+  border-width: 0 5px 5px 5px;
+  border-color: transparent transparent #ffffff transparent;
+}
+.user-menu li {
+  color:black;
+  list-style: none;
+}
+.user-menu li:hover {
+  color: #0067a3;
+  cursor: pointer;
+}
+.user-menu li:not(:last-child) {
+  padding-bottom: 12px;
+}
+.user-button {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .user {
+    padding: 10px 0;
+  }
+  .user-menu {
+    top: 39px;
+    left: -66px;
+  }
+  .user-avatar {
+    order: -1;
+  }
+  .chevron {
+    margin-left: 6px;
+  }
+}
+
+
+.issues {
+  max-height: 80vh;
+  overflow-y: auto;
+}  
+.issue {
+    display: block;
+    background-color: white;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    padding: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    color: black
+  }
+.issue:hover {
+    color: #0067a3;
+} 
+.button {
+    color: #5e6c84;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: transparent;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  .button:hover {
+    background-color: white;
+  }
+  .button:disabled {
+    color: black;
+    cursor: default;
+    background-color: transparent;
+  }
+  
+.label {
+    background-color: white;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    padding: 7px 12px;
+    border: none;
+    position: relative;
+    display: block;
+  }
+  .input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+    outline: none;
+  }
+  .submit {
+    padding: 8px 23px;
+    background-color: #0079bf;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+.selector {
+    width: 100%;
+    border-radius: 5px;
+    background: white;
+    border: none;
+    font-size: 18px;
+    line-height: 21px;
+    padding: 8px;
+  }
+.column {
+    background-color: #ebecf0;
+    border-radius: 10px;
+    width: 282px;
+    max-height: 100%;
+    padding: 12px;
+    font-size: 18px;
+  }
+  .column:not(:last-child) {
+    margin-right: 24px;
+  }
+  .title {
+    padding-bottom: 12px;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .column {
+      margin-bottom: 50px;
+      width: 100%;
+    }
+    .column:not(:last-child) {
+      margin-right: 0;
+    }
+    .column:last-child {
+      margin-bottom: 25px;
+    }
+  }
+.main {
+    flex-grow: 1;
+    background-color: #0079bf;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    height: 100vh;
+  }
+  
+@media only screen and (max-width: 600px) {
+.main {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 20px 0;
+    height: 100%;
+}
+}  
+.fullView {
+    background-color: white;
+    border-radius: 5px;
+    margin: 21px 25px;
+    height: 100%;
+    padding: 0px 0 0 12px;
+  }
+  .fullViewTitle {
+    font-size: 24px;
+    line-height: 28px;
+    font-weight: normal;
+  }
+  .fullViewPar {
+    width: 621px;
+    height: 136px;
+    padding-top: 14px;
+  }
+  .close {
+    position: absolute;
+    right: 51px;
+    top: 126px;
+    width: 47px;
+    height: 32px;
+  }
+  
+  .close:before, .close:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 33px;
+    width: 1px;
+    background-color: black;
+  }
+  .close:before {
+    transform: rotate(45deg);
+  }
+  .close:after {
+    transform: rotate(-45deg);
+  }
+  
+.footer {
+    /* color: white;
+    background-color: #0067a3; */
+    width: 100%;
+    display: flex;
+    /* font-size: 18px;
+    padding: 18px 0 18px 20px; */
+  }
+  .active_tasks {
+    margin-right: 36px;
+  }
+  .author {
+    flex-grow: 1;
+    text-align: right;
+    margin-right: 19px;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .footer {
+      display: none;
+    }
+  }
+  
+
