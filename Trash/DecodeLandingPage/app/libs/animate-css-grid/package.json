@@ -1,0 +1,78 @@
+{
+  "_from": "animate-css-grid",
+  "_id": "animate-css-grid@1.4.3",
+  "_inBundle": false,
+  "_integrity": "sha512-Yq/5cxm7amQALKCB4/SFJzNQFhLfgJE+lGoy8F131a2uuSF4K4/yCmOYr9jZi1J4KQqAbnilurnBRXkYbOXqvQ==",
+  "_location": "/animate-css-grid",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "animate-css-grid",
+    "name": "animate-css-grid",
+    "escapedName": "animate-css-grid",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/animate-css-grid/-/animate-css-grid-1.4.3.tgz",
+  "_shasum": "414cad20c3511538a4d488ab7ac9aa0198d9ebbe",
+  "_spec": "animate-css-grid",
+  "_where": "C:\\Users\\EGOR\\Documents\\GitHub\\WildEgor.github.io\\LessonsJS\\PureJS\\LandingPage",
+  "author": {
+    "name": "Alex Holachek"
+  },
+  "bugs": {
+    "url": "https://github.com/aholachek/animate-css-grid/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "@popmotion/easing": "^1.0.2",
+    "lodash.throttle": "^4.1.1",
+    "popmotion": "^8.5.5"
+  },
+  "deprecated": false,
+  "description": "Easy, smooth transitions for CSS grid",
+  "devDependencies": {
+    "@babel/core": "^7.7.5",
+    "@babel/preset-env": "^7.7.6",
+    "@babel/preset-typescript": "^7.7.4",
+    "babel-loader": "^8.0.6",
+    "npm-run-all": "^4.1.5",
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.3",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
+  },
+  "homepage": "https://github.com/aholachek/animate-css-grid",
+  "keywords": [
+    "css",
+    "grid",
+    "animation",
+    "transition",
+    "mutation-observer",
+    "layout"
+  ],
+  "license": "MIT",
+  "main": "dist/main.js",
+  "name": "animate-css-grid",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aholachek/animate-css-grid.git"
+  },
+  "scripts": {
+    "build": "webpack --mode production",
+    "check-types": "tsc",
+    "dev": "webpack-dev-server --mode development --config demo/webpack.config.js",
+    "prepublishOnly": "yarn run build",
+    "preversion": "npm run check-types"
+  },
+  "sideEffects": false,
+  "types": "dist/index.d.ts",
+  "version": "1.4.3"
+}

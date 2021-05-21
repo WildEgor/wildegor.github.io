@@ -1,0 +1,77 @@
+$feature2: max-width
+$feature1: min-width
+$phone-width: 320px
+$tablet-width: 764px
+$desktop-width: 1324px
+
+@media ($feature1: #{$phone-width}) and ($feature2: #{$tablet-width - 1px})
+  .container
+    padding: 0px
+  .menu-list-normal
+    font-size: .1rem
+  .portfolio
+    grid-template-columns: 1fr 
+    column-gap: 0px
+    padding: 0px
+    row-gap: 0px
+  .header
+    &__navbar
+      margin: 0px
+      height: 100px
+    &__logo
+      display: none
+  .tile
+    grid-template-columns: 1fr
+  .demo-site__main_titles
+    visibility: hidden
+  .demo-site__second_titles
+    visibility: hidden
+  .container-mod
+    padding: 0 80px
+  .container
+    padding: 0 0
+  .modalWindow
+    width: 220%
+    height: 220%
+  .modal-content
+    left: 10%;
+    top: 10%;
+    transform: translate(-10%, -10%);
+  .header__navbar
+    button
+      margin: 5px 20px 5px 0px
+      padding: 0px 30px
+      font-size: ($fontsize - 5)
+
+@media ($feature1: #{$tablet-width}) and ($feature2: #{$desktop-width - 1px})
+  .portfolio
+    grid-template-columns: 1fr 1fr
+  .tile
+    grid-template-columns: 1fr 1fr
+  .modalWindow
+    width: 120%
+    height: 120%
+  .modal-content
+    left: 30%;
+    top: 30%;
+    transform: translate(-30%, -30%);
+  .header__navbar
+    button
+      margin: 5px 5px 5px 5px
+      padding: 0px 50px
+      font-size: ($fontsize - 3)
+  
+@media ($feature1: #{$desktop-width})
+  .portfolio
+    grid-template-columns: 1fr 1fr 1fr
+  .tile
+    grid-template-columns: 1fr 1fr 1fr
+  .modalWindow
+    width: 100%
+    height: 100%
+  .modal-content
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+
