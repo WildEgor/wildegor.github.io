@@ -1,5 +1,15 @@
 /* eslint-disable prettier/prettier */
 export default class Algo {
+
+  static arrIntersection (firstArray: number[], secondArray: number[]): number[] {
+    const newArray = [];
+
+    
+
+    return newArray;
+  }
+
+
   static factorial(value: number): number {
     if (value === 0 || value === 1)
       return 1;
