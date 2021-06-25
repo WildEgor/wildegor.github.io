@@ -22,6 +22,11 @@ export default class Algo {
     return currentNum;
   }
 
+  static fibonacciReq(n: number): number {
+    if (n === 1 || n === 2) return 1;
+    return this.fibonacciReq(n - 1) + this.fibonacciReq(n - 2)
+  }
+
   static fibonacci(n: number): number[]  {
     const fSq = [1];
 
@@ -52,6 +57,10 @@ export default class Algo {
     return Math.floor((phi ** position) / sqrt5 + 0.5);
   }
 
+  static swapTwo(numOne: number, numTwo: number): number[] {
+    return [numTwo, numOne]
+  }
+
   static linearSearch(array: number[], item: number): number | null {
 
     if (!array.length) return null;
@@ -63,6 +72,49 @@ export default class Algo {
         // element = array[index];
     }
     return null;
+  }
+
+  static insertionSort(array: number[]): number[] {
+    const newArray = [...array];
+    for (let index = 1; index < newArray.length; index++) {
+      let currentIndex = index;
+      while(newArray[currentIndex - 1] !== undefined && newArray[currentIndex] < newArray[currentIndex - 1]){
+        [
+          newArray[currentIndex - 1],
+          newArray[currentIndex],
+        ] = this.swapTwo(newArray[currentIndex - 1], newArray[currentIndex])
+        currentIndex -= 1;
+      } 
+    }
+    return newArray;
+  }
+
+  static quickSort(array: number[]): number[] {
+    if (array.length <= 1) return array;
+  
+    const newArray = [...array];
+
+    const leftArr = [];
+    const rightArr = [];
+    const centerItem = newArray.shift();
+    const centerArr = [centerItem];
+
+    while(newArray.length) {
+      const currentItem = newArray.shift();
+
+      if (currentItem === centerItem) {
+        centerArr.push(currentItem);
+      } else if (currentItem < centerItem) {
+        leftArr.push(currentItem);
+      } else {
+        rightArr.push(currentItem);
+      }
+    }
+
+    const leftArrSorted = this.quickSort(leftArr);
+    const rightArrSorted = this.quickSort(rightArr);
+
+    return leftArrSorted.concat(centerArr, rightArrSorted);
   }
 
   static dummySort(array: number[]): number[] {
@@ -105,28 +157,36 @@ export default class Algo {
     return newArray;
   }
 
+  static reqBinarySearch(arr: number[], value: number): number {
+    if(!arr.length) return -1;
+    const average = Math.floor(arr.length-1/2);
+ 
+    if (value === arr[average]) return average;
+    if (value > arr[average]) return this.reqBinarySearch(arr.slice(average+1),value);
+    if (value < arr[average]) return this.reqBinarySearch(arr.slice(0,average),value);
+ 
+ }
+
   static binarySearch(array: number[], item: number): number {
-    const newArray = this.bubbleSort(array);
-    let pos = -1;
+    const newArray = [...array];
     let searchValue = null;
     let arrStart = 0;
     let arrEnd = newArray.length;
 
     while(!searchValue || arrStart <= arrEnd) {
-      const middle = Math.floor((arrStart + arrEnd) / 2);
+      const middle = arrEnd + Math.floor((arrEnd - arrStart) / 2);
 
       if (item === newArray[middle]){
         searchValue = newArray[middle];
-        pos = middle;
-        return pos;
-      } else if (item < newArray[middle]) {
+        return middle;
+      }
+      
+      if (item < newArray[middle]) {
         arrEnd = middle - 1;
       } else {
         arrStart = middle + 1;
       }
     }
-
-    return pos;
   }
 
   private static isEven(value: number) {
