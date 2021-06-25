@@ -1,11 +1,39 @@
 /* eslint-disable prettier/prettier */
 export default class Algo {
 
+  static searchUnique(s: string):string {
+    const mapper = new Map();
+    const origString = s.split('');
+
+    const map = origString.reduce((acc, i) => {
+      acc[i] = acc[i]? acc[i] + 1 : 1;
+      return acc;
+    }, {});
+
+    for (let index = 0; index < origString.length; index++) {
+      const element = origString[index];
+      if (map[element] === 1) return element;
+    }
+
+    return '';
+  }
+
   static arrIntersection (firstArray: number[], secondArray: number[]): number[] {
     const newArray = [];
 
-    
+    const map = firstArray.reduce((acc, i) => {
+      acc[i] = acc[i]? acc[i] + 1 : 1;
+      return acc;
+    }, {});
 
+    for (let index = 0; index < secondArray.length; index++) {
+      const current: number = secondArray[index];
+      const count = map[current];
+      if (count && count > 0){
+        newArray.push(current);
+        map[current] -= 1;
+      }
+    }
     return newArray;
   }
 
