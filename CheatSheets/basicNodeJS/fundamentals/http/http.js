@@ -1,9 +1,19 @@
 const http = require('http');
+const fs = require('fs');
 
 const server = http.createServer((req, res) => {
     switch (req.url) {
         case '/': {
-            res.end('Welcome to our home page');
+            const fileStream = fs.createReadStream(__dirname + '/content/big.txt', 'utf8')
+            fileStream.on('open', () => {
+                fileStream.pipe(res);
+            })
+
+            fileStream.on('error', (error) => {
+                console.log(error);
+                res.end('Error');
+            })
+
             break;
         };
         case '/about': {
