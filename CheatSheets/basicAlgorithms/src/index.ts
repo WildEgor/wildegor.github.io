@@ -1,6 +1,45 @@
-// import { measure } from 'helpful-decorators';
+import { measure } from './utils/meausure.decorator';
 
-class ClassicAlgorithms {
+class ClassicSearchAlgorithms {
+  @measure
+  public static quickReqBinarySearch<T>(arr: T[], value: T): number | null {
+    if (!arr.length) return null;
+    const average = Math.floor(arr.length - 1 / 2);
+
+    if (value === arr[average]) {
+      return average;
+    } else if (value > arr[average]) {
+      return this.quickReqBinarySearch(arr.slice(average + 1), value);
+    }
+    return this.quickReqBinarySearch(arr.slice(0, average), value);
+  }
+
+  @measure
+  public static reqBinarySearch<T>(
+    array: T[],
+    item: T,
+    low: number = 0,
+    high: number = array.length - 1,
+  ): number | null {
+    if (low <= high) {
+      const middleIndex = (low + high) / 2;
+      const middleItem = array[middleIndex];
+      if (middleItem === item) {
+        return middleIndex;
+      } else if (item < middleItem) {
+        // high = middleIndex - 1;
+        return this.reqBinarySearch(array, item, low, middleIndex - 1);
+      } else {
+        // low = middleIndex + 1;
+        return this.reqBinarySearch(array, item, middleIndex + 1, high);
+      }
+    }
+
+    return null;
+  }
+}
+
+class ClassicSortAlgorithms {
   private static partition<T>(array: T[], low: number, high: number): number {
     const pivotIndex = Math.floor(Math.random() * array.length);
     const pivotItem = array[pivotIndex];
@@ -22,7 +61,26 @@ class ClassicAlgorithms {
     return low;
   }
 
-  // @measure
+  public static bubbleSort(array: number[]): number[] {
+    let swapped = false;
+    const newArray: number[] = [...array];
+    for (let i = 0; i < newArray.length; i++) {
+      swapped = false;
+      for (let j = 0; j < newArray.length; j++) {
+        if (newArray[j] > newArray[j + 1]) {
+          const temp = newArray[j];
+          newArray[j] = newArray[j + 1];
+          newArray[j + 1] = temp;
+          swapped = true;
+        }
+      }
+      if (!swapped) {
+        return newArray;
+      }
+    }
+    return newArray;
+  }
+
   public static qSort<T>(array: T[]): T[] {
     if (array.length <= 1) return array;
 
@@ -53,7 +111,6 @@ class ClassicAlgorithms {
     return leftArrSorted.concat(centerArr, rightArrSorted);
   }
 
-  // @measure
   public static quickSort<T>(array: T[], low = 0, high = array.length - 1): T[] {
     if (low < high) {
       const lowIndex = this.partition(array, low, high);
@@ -62,10 +119,7 @@ class ClassicAlgorithms {
     }
     return array;
   }
-
-  public static binarySearch() {}
 }
 
-console.log(ClassicAlgorithms.quickSort([2, 4, 4, 5, 1, 4, 2]));
-console.log(ClassicAlgorithms.qSort([2, 4, 4, 5, 1, 4, 2]));
-
+const sortedArr = ClassicSortAlgorithms.quickSort([2, 4, 4, 5, 1, 4, 2]);
+console.log(ClassicSearchAlgorithms.quickReqBinarySearch(sortedArr, 5));
