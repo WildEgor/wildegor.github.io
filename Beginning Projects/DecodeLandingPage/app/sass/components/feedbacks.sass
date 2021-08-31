@@ -1,0 +1,52 @@
+.feedback
+  display: flex
+  flex-direction: row
+  margin: 0px
+  //margin-bottom: 100px
+  &-wrapper
+    margin: 0 auto
+    background-color: white
+    border-radius: 10px
+    padding: 40px 30px
+    text-align: center
+  &__header
+    i
+      display: block
+      font-size: 28px
+      color: #484b59
+      margin-bottom: 15px
+  &__title
+    &-main
+      font-family: $poppins
+      font-weight: 500
+      font-size: 20px
+    &-sub
+      font-family: $roboto
+      font-weight: 400
+      font-size: 15px
+  &__rating
+    display: flex
+    justify-content: space-around
+    width: 15%
+    margin: 0 auto
+    i
+      color: #eec700
+
+.feedbacks-section
+  height: 0px
+  overflow: hidden
+  box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5)
+  transition: height .5s ease
+
+.F_Create
+  display: flex
+  flex-direction: column
+  input, textarea
+    outline: none
+    margin: 10px 0
+    padding: 0.5rem
+    border-radius: 15px 15px 15px 15px
+
+.btn-feedback
+  margin-bottom: 50px
+

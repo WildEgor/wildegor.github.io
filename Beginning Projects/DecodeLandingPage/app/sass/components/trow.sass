@@ -1,0 +1,24 @@
+$phone-width: 1024px
+
+.elevator-button
+  position: fixed
+  z-index: 9999
+  @media (min-width: $phone-width + 1) 
+    left: 95%
+  @media (max-width: $phone-width) 
+    left: 90%
+  top: 92%
+  width: 40px
+  height: 40px
+  padding-top: 5px
+  padding-left: 15px
+  background: #7fee1d
+  -moz-border-radius: 60px
+  -webkit-border-radius: 60px
+  border-radius: 60px
+  background: linear-gradient(to right, #2c6efb 2%, #9403f0 82%)
+  &:after
+    color: white
+    font-family: $themify
+    font-size: .6rem
+    content: "\e648"

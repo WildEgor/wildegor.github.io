@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP intro</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style >
+        .hide {
+            display: none;
+        };
+    </style>
+</head>
+<body>
+    
+    <section class="form">
+        <div class="container">
+            <div class="form__wrapper">
+                <br>
+                <form action="" id="R_form" method="post">
+                    <h2>Sign Up</h2>
+                    <input id="R_username" type="text" placeholder="Username">
+                    <input id="R_password" type="text" praceholder="Password">
+                    <button type="submit">Sign Up</button>
+                </form>
+                <br><br>
+                <form action="" id="L_form" method="post">
+                    <h2>Sign In</h2>
+                    <input id="L_username" type="text" placeholder="Username">
+                    <input id="L_password" type="text" praceholder="Password">
+                    <button type="submit">Sign In</button>
+                </form>
+                <section>
+                    <div class ="UserNameShow">
+                        
+                    </div>
+                </section>
+                <button onclick="logout()">Log out</button>
+            </div>
+        </div>
+    </section>
+    <br><br><br>
+
+
+
+    <section class="posts">
+        <div class="container">
+            <h2></h2>Posts:</h2>
+            <div class="posts__wrapper">
+
+                <form id="C_form" class="create">
+                    <input id="C_employ" type="text" placeholder="Your employ">
+                    <textarea id="C_feedback" cols="30" rows="10" placeholder="Your feedback"></textarea>
+                    <input id="C_rating" type="text" placeholder="Your rating">
+                    <button type="submit">Create</button>
+                </form>
+                <br><br><br>
+                <div class="posts-list">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+</body>
+<script src="js/auth.js"></script>
+<script src="js/test.js"></script>
+<script src="js/posts.js"></script>
+</html>

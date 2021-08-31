@@ -1,0 +1,49 @@
+$phone-width: 1024px
+
+.header
+  position: fixed
+  background-color: #fff
+  width: 100%
+  height: 70px
+  z-index: 2
+  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.35)
+  &__navbar
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin: 0 auto
+    &_buttons
+      padding: 5px 0px 5px
+      flex-direction: row
+      display: flex
+      button
+        margin-left: 10px
+        @media (max-width: $phone-width) 
+          a
+            i.fa-shopping-cart
+                &::after
+                  font-family: $roboto
+                  font-weight: 400
+                  content: " Buy now"
+            i.fa-user-plus
+                &::after
+                  font-family: $roboto
+                  font-weight: 400
+                  content: " Sign Up"
+            i.fa-sign-in-alt
+                &::after
+                  font-family: $roboto
+                  font-weight: 400
+                  content: " Sign In"
+            i.fa-sign-out-alt
+                &::after
+                  font-family: $roboto
+                  font-weight: 400
+                  content: " Log Out"
+          
+        
+  &__logo
+    img
+      max-height: 100%
+      width: 100px
+
