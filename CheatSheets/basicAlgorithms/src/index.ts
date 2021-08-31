@@ -1,7 +1,6 @@
 import { measure } from './utils/meausure.decorator';
 
 class ClassicSearchAlgorithms {
-  @measure
   public static quickReqBinarySearch<T>(arr: T[], value: T): number | null {
     if (!arr.length) return null;
     const average = Math.floor(arr.length - 1 / 2);
@@ -14,7 +13,6 @@ class ClassicSearchAlgorithms {
     return this.quickReqBinarySearch(arr.slice(0, average), value);
   }
 
-  @measure
   public static reqBinarySearch<T>(
     array: T[],
     item: T,
@@ -111,6 +109,7 @@ class ClassicSortAlgorithms {
     return leftArrSorted.concat(centerArr, rightArrSorted);
   }
 
+  @measure
   public static quickSort<T>(array: T[], low = 0, high = array.length - 1): T[] {
     if (low < high) {
       const lowIndex = this.partition(array, low, high);
@@ -122,4 +121,5 @@ class ClassicSortAlgorithms {
 }
 
 const sortedArr = ClassicSortAlgorithms.quickSort([2, 4, 4, 5, 1, 4, 2]);
+
 console.log(ClassicSearchAlgorithms.quickReqBinarySearch(sortedArr, 5));
