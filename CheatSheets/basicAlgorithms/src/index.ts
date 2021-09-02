@@ -111,15 +111,51 @@ class ClassicSortAlgorithms {
 
   @measure
   public static quickSort<T>(array: T[], low = 0, high = array.length - 1): T[] {
-    if (low < high) {
+    if (low < high && array.length > 1) {
       const lowIndex = this.partition(array, low, high);
       this.quickSort(array, low, lowIndex - 1);
       this.quickSort(array, lowIndex, high);
     }
     return array;
   }
+
+  private static searchMin<T>(array: T[]): number {
+    let minValue = array[0];
+    let minIndex = 0;
+    for (let i = 0; i < array.length; i++) {
+      if (minValue > array[i]) {
+        minValue = array[i];
+        minIndex = i;
+      }
+    }
+    return minIndex;
+  }
+
+  @measure
+  public static selectionSort<T>(array: T[]): T[] {
+    let newArray = [];
+    const len = array.length;
+    for (let i = 0; i < len; i++) {
+      const minIndex = this.searchMin(array);
+      newArray.unshift(...array.splice(minIndex, 1));
+    }
+    return newArray;
+  }
 }
 
-const sortedArr = ClassicSortAlgorithms.quickSort([2, 4, 4, 5, 1, 4, 2]);
+class ClassicCommonAlgorithms {
+  @measure
+  public static factorial(number: number, running = 1): number {
+    if (number < 1) return running;
+    return this.factorial(number - 1, running * number);
+  }
 
-console.log(ClassicSearchAlgorithms.quickReqBinarySearch(sortedArr, 5));
+  public static sum(number: number[], running = 0): number {
+    if (number.length <= 0) return running;
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    const item = number.pop()!;
+    return this.sum(number, running + item);
+  }
+}
+
+console.log(ClassicCommonAlgorithms.sum([2, 4, 6]));
